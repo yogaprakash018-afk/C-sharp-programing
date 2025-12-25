@@ -1,0 +1,220 @@
+Final recommendation for YOU (indie dev path)
+
+Since you want to be indie + know everything:
+
+✅ Use these tools:
+
+Blender → 3D modeling
+
+Visual Studio Community
+
+C#
+
+MonoGame (learning)
+
+Godot (actual games)
+
+Later: C++ + Unreal
+
+❌ Avoid for now:
+
+CryEngine
+
+Too many engines at once
+
+Perfectionism before finishing a small game
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+C# Basics :
+
+Variables and data types in C#:
+1. string ex-"name", 2. char ex-"@", 3. bool ex-"true" or "false", 4. float ex-"3.14", "username", "at", "isactive", "pi" etc are variables.
+String - set of characters or more than one character, char - only one value or one character, boolean - only true or false, float - point values or decimal values.
+Declaring a variable : int a; Assigning value to variable : a = 30; "USE SEMI COLON IN C# ALWAYS".
+In VS Code Community why different names for solution and project is because we can create multiple projects inside one solution so same name affects. The soluion or slnx file kept outside of project files becasue each project search that one solution or slnx file. If it kept inside one of any project remaining project wont access it.
+
+Namespace - it defines where the class file is in directory or folder, to identify the class files inside directory; this namespace is very important*. Class name should be same as root folder name for example - if root or class created by pressing right click and add option and given class it will assign a name, this same name should or can be given inside coding.
+
+Functions are used in C# including main function like java or c++ "Main" should used instead of "main", for assigning point or float values at end always use F or f.
+Console.Write()
+➜ Prints text without moving to a new line
+Console.WriteLine()
+➜ Prints text and then moves the cursor to the next line, in console.WriteLine always use + operator to concatenate variable ex-console.WriteLine("Integer: " +a); like this.
+
+In C# data type sizes are : int-4bytes, long-8bytes, float-4bytes, double-8bytes. int cannot store big values like 10000000 this so long used, when float used at end f should be mentioned, when using double f mentioning is not required. Why double is used sometimes instead of float is only 4bytes double is 8 so max no of values acquired that's why. /* to */ for command lines.
+
+If you want to change the float value to int or int to float give "(datatype required)variable" like this, this is called implicit conversion. We can also give low byte to high byte (int-long or float-decimal) just directly store it ex- int a =10; long b = a; this is called explicit conversion, to find its really got big use GetType() inside console.Write(). Long will shown as "System.Int64", Int will shown as "System.Int32".
+
+C# is statically typed so, in this code, float n = 3.1561F; int n2 = (int)n; int n3 = 15; long n4 = n3; Console.WriteLine(n2); Console.WriteLine(n3.GetType()); Console.WriteLine(n4.GetType()); even though if we place the "Console.WriteLine(n3.GetType())" above long n4 it shows value of n3 which is 15 and is int32 and if we place below long n4 it will still shows n3 value 15 or its int32 value.
+
+Type Conversion in C# : ToString() is used to convert int or float or double to string and we can store using "string" declared variable. It will show as "System.String" if "GetType()" is used. But if say int a = 10; string s = a.ToString(); and we printed it will still print 10 as output but as a string. Same for others like float and double etc. 
+
+To get input from user use "console.ReadLine()" and if you try the method to convert string to int or float by giving like this "int c = (int)a + (int)b" this wont work.  int getdata3 = Int32.Parse(getdata1) + Int32.Parse(getdata2); this is the line to convert user inputed string to integer values. You can directly give this in consecutive variables or else you can get user inputed values as string then use new variables declared int and using Int32.Parse() store them. What exactly is Parse? Parse = read + convert It means: “Take some text and interpret it as a number (or other data type).” 
+
+TryParse*
+
+ReadLine() - reads entire set of characters ex-"TOM", Read()-only reads one character at a time ex-"C". Console.WriteLine(Value)- this statement will give ASCII value of any character, number, special char, space etc ex- user inputs something like "F" then output will be related ASCII value of F. It handles a to z, A to Z, 1 to 9, ! to + etc. To get char of value use Console.WriteLine(char(value)) Statement.
+
+string operations:
+
+Console.WriteLine(" HI am {0} my age is {1} from {2}",variablename1, variablename2, variablename3..) - suppose say you gave name, age, location as inputs in code itself or even getting from user instead of using this statement- Console.WriteLine("HI am " + name + " my age is " + age + " I am from " + Location); we can use the above one. The numbers mentioned inside curly braces are index values of inputs given. The above one with index is called string formatting and below one is called string concatenation.
+What is the key difference between the two lines? - string concatenation: Joins strings using +, Non-string values (int age) are automatically converted to string, Order is fixed by how you write it. String formatting: {0}, {1}, {2} are placeholders, Values after the comma are inserted by index number, Index starts from 0. Why? - YOU decide it by the order you pass values after the string. ex- age = 10, name = tom, loc = us, if name is at first then 0th index is assigned to it. Console.WriteLine("Age: {0}, Name: {1}, Location: {2}",name, age, loc); - this will give output as age is tom, name is 10, loc is us this is wrong. The placeholder or index is given to particular variable then that order only given input in comma separated so for this its - age, name, loc.
+
+String Interpretation - Console.WriteLine($"HI I am {name} my age is {age} from {Location}"); // String interpretation, here instead of placeholder or index directly, the variable is given, to do that $ symbol is used.
+
+string verbatium -  Console.WriteLine($"HI I am {name} \n my age is {age} from {Location}");
+Console.WriteLine(@"HI I am {0} \n my age is {1} from {2}", name, age, Location); - from these 2 lines we can see \n is used but when using "@" symbol it will consider all as string even \n.
+
+ToUpper, ToLower, Trim(), String.Concat(), Substring() - printing required or next set of string from a particular main string ex-Google Substring(2)- oogle we didn't mention end index, IndexOf()-if element not found it give -1 as output because 0 is the smallest starting index so its valid, Remove(0-startindex, n value like 3-count or how many to remove), replace("Goo", "Moo")-used to replace within the string, String.IsNullOrEmpty(variable name)-used to check if string is null or empty, String.IsNullOrWhiteSpace(variable name).
+
+Console Methods:
+
+Console.Write();-same line
+Console.WriteLine();-New line
+Console.Read();-ASCII, it will read data whatever we give yet it stores only ASCII value.
+Console.ReadLine();-Raw input
+Console.ReadKey();-Hold to read,  ReadKey() function to wait for a key press before closing the console window. To detect which key was pressed - ConsoleKeyInfo key = Console.ReadKey();
+Console.WriteLine($"\nYou pressed {key.Key}");
+
+Data types : Value type- int,float, double, long,bool,char; Reference type- String, array and class.
+
+Methods/Funtions : its a block of code only runs when its called, you can pass data known as parameters, why function/methods used - code reusability
+Syntax: <access specifier> <return type> <method name>(parameter list){
+method body
+} access specifier - keeping method or function private or public, return type - what type of data function will return as output, parameters-data passing or data passed.
+types of methods - return type - if function return something, non return type - no need of return but only process should be done.
+Static - Real-world analogy - Factory example: Class = Factory blueprint, Object = Actual factory building, Static method - Factory office number (exists even if no factory is built), Non-static method - Machine inside the factory (needs the factory to exist), Main() is like calling the office before the factory is built. Static → class-level → no object needed, Non-static → object-level → object required.
+
+IMPORTANT NOTE - inside same project one main function should be used "Main" if one code or class already has it no need of using it on another class this will give errors as Main is the entry point itself.
+
+In return type function with parameters, the parameters are declared like this public static function1(int a, int b) so no need of internal datatype assignment, but when function calling inside main function the required values should be provided - function1(10,20). Key example - No Parameter: like a vending machine that always gives the same snack, With Parameter: like a vending machine where you select the snack you want. Return only not used in void and void too we can give parameters. For void with parameters do not use print statements.
+
+reference parameter: Normal parameter = COPY ex-int a, ref parameter = ORIGINAL a little ex:
+Normal parameter (NO ref) — COPY:
+static void Add(int a)
+{
+    a = a + 10;
+}
+
+static void Main()
+{
+    int x = 5;
+    Add(x);
+    Console.WriteLine(x);
+}
+
+What happens step by step: x = 5, Add(x) sends a copy of 5 into a, a becomes 15, x is still 5, 
+Output: 5
+
+ref parameter — ORIGINAL:
+static void Add(ref int a)
+{
+    a = a + 10;
+}
+
+static void Main()
+{
+    int x = 5;
+    Add(ref x);
+    Console.WriteLine(x);
+}
+
+What happens step by step: x = 5, Add(ref x) sends original variable value into a, x becomes 15, a remains 10 
+output: 15
+ref parameters can be used to any method or functions - void, int, string, double etc. If you use ref in the method definition, you MUST use ref in the method call ex-static void Add(ref int a), Add(ref x); when function call and function definition. if not it will show error.
+
+Operators: assignment operators - =, arithmetic - +,-,/,%,*, relational - ==,<,>,<=,>=,!=, logical - &&(and), ||(or), unary - +,++,-,--,!(logical negation), ternary - condition ? true : false
+
+debugging in vs code community is to select a line by placing cursor near line number it will show white ball click it, then press fn + f10 to debug and find where will be the next execution can be done. 
+
+diff between int.Parse() and Int32.Parse(), tryparse() and parse() - int is just a shortcut/alias for System.Int32 so both Int32.parse and int.parse can be used. parse only accepts valid number as input like "123" where if string itself is used or invalid like "abc" tryparse can be used. syntax for tryparse is tryparse(string variable, out datatype to be converted(int) new variable for that datatype) ex- tryparse(s, out int x).
+
+?? operator (Null-coalescing operator) - Syntax: a ?? b, Meaning: “If a is not null, use a; otherwise, use b.”
+
+IMPORTANT NOTE - Console.ReadLine() only works for strings or texts not numbers.
+
+IMPORTANT NOTE - Only one main should be created inside same project but we can create multiple classes, main is the entry point so we cannot create multiple main.
+
+Difference between while and do while - while checks condition then runs code block, do while runs code block then checks the condition.
+
+IMPORTANT NOTE - console.read() only reads one value and prints it ascii value only so it cannot be used most of the time. Also console.read() reads integer value so if you tried to store it as string it will show error.
+
+Collections: types- generic(limited to 1 datatype storing(only int or only string etc)) - list, dictionaries, stack, queue; non generic(can store multiple datatype values) - ArrayList, HashTable.
+
+Array - {1, 2, 3, 4, 5} - values stored 
+	{0, 1, 2, 3, 4}	- index values
+syntax ex - int[] numbers = new int[5]; // int - datatype, [] - array syntax, new - keyword to create array box virtually, int[5] - size of the array - we can store 5 values or datas.
+string[] names = { "Alice", "Bob", "Charlie" }; // string - datatype, [] - array syntax, {} - array initializer with values, this is another way to create and initialize an array.
+double[] num1 = new double[] { 1.1, 2.2, 3.3 }; // double - datatype, [] - array syntax, new double[] - keyword to create array box virtually with datatype, {} - array initializer with values.
+Array values are accessed by index of a particular value stored in array.
+
+What is var in C#? - var lets the compiler figure out the data type for you, var x = 10; The compiler understands this as:int x = 10;
+
+ElementAt() - ElementAt() is a LINQ method used to get an element at a specific index from a collection. syntax: using System.Linq; collection.ElementAt(index);
+
+IMPORTANT INFO - Inside a same class Only static methods can be called without creating an object. If a method is static, it can be called WITHOUT object creation — even if it is in a different class.
+
+Private and public property of a class - if a property like string name or int age created inside a class is set to public it can be accessed by any class including main. If its set to private, only the class inside which they created can be used.
+
+A class's function or method can be accessed by creating a object. Or if they are declared static(the function) within or outside of classes they can be used without object creation.
+
+We can create multiple objects for single class for reusability of that class code.
+
+This.name = name or this.variablename = variablename; this will assign giving input to already declared private property in a class ex: private string name = "Google", this.name = name will assign the inputed value to the private declared name.
+
+We can give properties like id = 1; name = "Google" inside the class itself and just call the function and also create new properties when calling the function ex: Company youtubeobj = new Company(); youtubeobj.id = 2; youtubeobj.name = "Youtube". This will create second set of properties when object is created. 
+
+IMPORTANT NOTE - Multiple constructors can present but not the same input type ex: public Constructor(int, string), public constructor(int, string) - this two are same so it should not be in same class only public Constructor(int, string), public Constructor(int , double), public constructor(int , int), public constructor(string) can have in same class.
+
+IMPORTANT NOTE - We can give even class inside List ex: List<classname> variable for class= new List<classname>{}; Syntax to add is: new classname { statements separated with commas but last statement should not have comma },...
+
+
+int? means: Can hold a number or Can be null (no value) ex: public int? CorelatedID { get; set; }
+
+HasValue: HasValue checks whether a nullable variable actually contains a value or not. ex: 
+int? x = 10;
+int? y = null;
+Console.WriteLine(x.HasValue); // true
+Console.WriteLine(y.HasValue); // false output: True.
+
+IMPORTANT NOTE - Four Pillars of OOPS - Encapsulation, Abstraction, Inheritance, Polymorphism. Interface - Another way to achieve abstraction in C# used in inheritance.
+
+Inheritance - inherit or give properties of one class to another class, base class(parent) - the class being inherited from, derived class(child) - the class that inherits from another class. 
+Types of inheritance - single, multiple(only achieved by interface), multilevel, hierarchical inheritance
+public string name {get;set;} = ""; - this double quotes makes At object creation → Name starts as empty string. It just avoids null initially but it can became null later.
+
+IMPORTANT NOTE - Why does the base (parent) constructor run at all? - In inheritance: Taking example of company and parent - An Employee IS A Company (conceptually). So before an Employee object can exist, the Company part of it must be created first. That’s why: Base class constructor ALWAYS runs before the child constructor.
+What : base(...) means (in plain English): used in inheritance, public Employee(int companyId, string companyName, string location): base(companyId, companyName, location) - example code, C# - “Before running the Employee constructor, call the Company constructor with these values.” Or simply saying or C# asking coder before creating employee how do i create company because in main function we will call using employee or child class object thats why we use base() to create parent and call child class.
+
+The child class can access and do all properties of parent class, but parent class cannot do operations of child class. For 1 child 1 parent is allowed in C#.
+for interface naming convention use 'I' before the name. To identify its an interface. - when creating an interface.
+ public Employee(int employeeid, string employeename, int phonenum, int CompanyId, string CompanyName, string LocationofCompany) : base(CompanyId, CompanyName, LocationofCompany) // the constructor we are creating will always require the base class constructor parameters also.
+ {
+     // The values or id,name, location we are passing here will be passed to base class constructor using base keyword.
+     // this is the child class this child will get values and give it to parent class using base keyword.
+     EmployeeID = employeeid;
+     EmployeeName = employeename;
+     PhoneNumber = phonenum;
+} - this is to use both values of child class and parent class in constructor.
+
+IMPORTANT NOTE - To create empty constructor in child class we should create empty constructor also in parent class for inheritance.
+
+IMPORTANT NOTE - For a class that is inherited from already a child class we have to give all the things from parent and child class ex - here employee class inherits company2 so both of the properties need to be given at constructor of child class inherited boss class.        
+
+Hierarchical inheritance - 1 parent multiple childs
+for a single child multiple parent cannot be possible, for a single parent multiple childs can be possible. interface is used to achieve multiple inheritance and so many other kinds of operations. multilevel inheritance - 1 parent, 1 interface both inherited by 1 child is already available, that child is inherited by another class or child.
+
+Polymorphism - means many forms and it occurs when we have many classes that are related to each other by inheritance and is achieved only by inheritance. polymorphism uses those methods or functions to perform different tasks. types -  static or compile time & dynamic/runtime polymorphisms.
+
+Static polymorphism - method overloading - Method overloading will have same function name but different signature or different kinds of inputs.
+Dynamic polymorphism - Method overriding - This will let child class to use its function if both parent class and child class have same function or method names and to do that override keyword is used in child class function - public override void fun(), and virtual keyword is used in parent class function - public virtual void fun(), why because if we try to run fun() function it will automatically call parent class function not child function to override this we use method overriding.
+We can give like SameClassname obj = new SameClassname(); - this like and if we used inheritance we can also use like parentclassname obj = new childclassname(); but we cannot do childclassname obj = new parentclassname(); - parent only controls child not child controls parent.
+
+IMPORTANT NOTE - if inside a constructor you store that value ex: Name = name and in other classes if you inherit and gave Name inside base and constructor it will take Name rather name inside constructor.
+
+abstraction - process of hiding certain details and showing only essential information to the user - abstract class and abstract methods used to achieve abstraction or using interface.
+Abstraction can restrict object creation, an interface is a complete abstraction.
+
+IMPORTANT NOTE - For interface and abstract classes we need to absolutly implement thier innate functions.
+
+Encapsulation - wrapping up of data under a single unit. It is a protective shield prevents data from being accessed by the code outside, achieved by declaring all variables in the class as private. This is also known as data hiding, the data inside the class is hidden from other classes.
